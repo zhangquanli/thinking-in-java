@@ -1,4 +1,4 @@
-package com.github.zhangquanli.thinkinginjava.chapter14;
+package com.github.zhangquanli.thinkinginjava.chapter14.code;
 
 import java.util.Arrays;
 import java.util.List;

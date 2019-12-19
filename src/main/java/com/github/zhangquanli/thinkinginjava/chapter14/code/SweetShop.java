@@ -1,4 +1,4 @@
-package com.github.zhangquanli.thinkinginjava.chapter14;
+package com.github.zhangquanli.thinkinginjava.chapter14.code;
 
 public class SweetShop {
 
@@ -7,7 +7,7 @@ public class SweetShop {
         new Candy();
         System.out.println("After creating Candy");
         try {
-            Class.forName("com.github.zhangquanli.thinkinginjava.chapter14.Gum");
+            Class.forName("com.github.zhangquanli.thinkinginjava.chapter14.code.Gum");
         } catch (ClassNotFoundException e) {
             System.out.println("Could not find Gum");
         }

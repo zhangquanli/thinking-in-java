@@ -1,4 +1,4 @@
-package com.github.zhangquanli.thinkinginjava.chapter14;
+package com.github.zhangquanli.thinkinginjava.chapter14.code;
 
 public class ToyTest {
 
@@ -11,7 +11,7 @@ public class ToyTest {
     public static void main(String[] args) {
         Class c = null;
         try {
-            c = Class.forName("com.github.zhangquanli.thinkinginjava.chapter14.FancyToy");
+            c = Class.forName("com.github.zhangquanli.thinkinginjava.chapter14.code.FancyToy");
         } catch (ClassNotFoundException e) {
             System.out.println("Can not find FancyToy");
             System.exit(1);

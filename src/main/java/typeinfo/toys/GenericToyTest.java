@@ -1,7 +1,7 @@
-package com.github.zhangquanli.thinkinginjava.chapter14.code;
+//: Java编程思想第四版第322页
+package typeinfo.toys;
 
 public class GenericToyTest {
-
     public static void main(String[] args) throws IllegalAccessException, InstantiationException {
         Class<FancyToy> ftClass = FancyToy.class;
         // 将产生具体的类型

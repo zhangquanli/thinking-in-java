@@ -1,10 +1,20 @@
-package com.github.zhangquanli.thinkinginjava.chapter14.code;
+//: Java编程思想第四版第321页
+package typeinfo;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class FilledList<T> {
+class CountedInteger {
+    private static long counter;
+    private final long id = counter++;
 
+    @Override
+    public String toString() {
+        return Long.toString(id);
+    }
+}
+
+public class FilledList<T> {
     private Class<T> type;
 
     public FilledList(Class<T> type) {
@@ -26,15 +36,5 @@ public class FilledList<T> {
     public static void main(String[] args) {
         FilledList<CountedInteger> fl = new FilledList<>(CountedInteger.class);
         System.out.println(fl.create(15));
-    }
-}
-
-class CountedInteger {
-    private static long counter;
-    private final long id = counter++;
-
-    @Override
-    public String toString() {
-        return Long.toString(id);
     }
 }

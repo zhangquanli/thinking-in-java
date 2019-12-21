@@ -1,7 +1,7 @@
-package com.github.zhangquanli.thinkinginjava.chapter14.code;
+//: Java编程思想第四版第320页
+package typeinfo;
 
 public class GenericClassReferences {
-
     public static void main(String[] args) {
         Class intClass = int.class;
         Class<Integer> genericIntClass = int.class;
@@ -9,6 +9,6 @@ public class GenericClassReferences {
         genericIntClass = Integer.class;
         intClass = double.class;
         // 非法的赋值
-//        genericIntClass = double.class;
+        // genericIntClass = double.class;
     }
 }

@@ -1,7 +1,13 @@
-package com.github.zhangquanli.thinkinginjava.chapter14.code;
+//: Java编程思想第四版第322页
+package typeinfo;
+
+class Building {
+}
+
+class House extends Building {
+}
 
 public class ClassCasts {
-
     public static void main(String[] args) {
         Building b = new House();
         Class<House> houseType = House.class;
@@ -9,10 +15,4 @@ public class ClassCasts {
         // 实现上面代码的相同功能
         h = (House) b;
     }
-}
-
-class Building {
-}
-
-class House extends Building {
 }

@@ -1,12 +1,10 @@
-package typeinfo.pets;
+//: Java编程思想第四版第326页
+package typeinfo;
+
+import typeinfo.pets.*;
 
 import java.util.HashMap;
 
-/**
- * PetCount
- *
- * @author zhangquanli
- */
 public class PetCount {
 
     static class PetCounter extends HashMap<String, Integer> {

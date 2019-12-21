@@ -1,15 +1,10 @@
+//: Java编程思想第四版第325-326页
 package typeinfo.pets;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * FornameCreator
- *
- * @author zhangquanli
- */
 public class ForNameCreator extends PetCreator {
-
     private static List<Class<? extends Pet>> types = new ArrayList<>();
 
     private static String[] typeNames = {

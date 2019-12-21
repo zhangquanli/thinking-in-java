@@ -1,7 +1,7 @@
+//: Java编程思想第四版第325页
 package typeinfo.pets;
 
 public class Hamster extends Rodent {
-
     public Hamster(String name) {
         super(name);
     }

@@ -1,3 +1,4 @@
+//: Java编程思想第四版第325页
 package typeinfo.pets;
 
 import java.util.ArrayList;

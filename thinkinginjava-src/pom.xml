@@ -3,15 +3,17 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <parent>
+        <groupId>com.github.zhangquanli</groupId>
+        <artifactId>thinkinginjava</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
     <groupId>com.github.zhangquanli</groupId>
-    <artifactId>thinkinginjava</artifactId>
+    <artifactId>thinkinginjava-src</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
 
-    <name>thinkinginjava</name>
-    <description>Java编程思想第四版</description>
-
-    <modules>
-        <module>thinkinginjava-src</module>
-    </modules>
+    <name>thinkinginjava-src</name>
+    <description>Java编程思想第四版——源码</description>
 </project>

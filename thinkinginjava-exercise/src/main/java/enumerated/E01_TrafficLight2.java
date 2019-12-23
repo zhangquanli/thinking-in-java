@@ -6,5 +6,4 @@
 package enumerated;
 
 public class E01_TrafficLight2 {
-
 }

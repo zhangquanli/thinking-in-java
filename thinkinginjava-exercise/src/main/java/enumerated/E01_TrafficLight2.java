@@ -45,3 +45,5 @@ The traffic light is YELLOW
 The traffic light is RED
  Thinking in Java, 4th 548 Edition Annotated Solution Guide
 *///:~
+// This technique is not possible if the enum is defined in the same file or the
+// default package.

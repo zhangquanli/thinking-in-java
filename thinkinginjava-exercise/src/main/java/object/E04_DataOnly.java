@@ -18,4 +18,3 @@ public class E04_DataOnly {
     }
 }
 ///:~
-

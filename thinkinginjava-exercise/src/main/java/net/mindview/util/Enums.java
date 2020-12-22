@@ -13,4 +13,5 @@ public class Enums {
     public static <T> T random(T[] values) {
         return values[rand.nextInt(values.length)];
     }
-} ///:~
+}
+///:~

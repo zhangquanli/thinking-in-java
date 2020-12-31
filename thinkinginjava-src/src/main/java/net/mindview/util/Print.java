@@ -25,5 +25,4 @@ public class Print {
     public static PrintStream printf(String format, Object... args) {
         return System.out.printf(format, args);
     }
-}
-///:~
+}///:~

@@ -1,13 +1,17 @@
-//: polymorphism/ReferenceCounting.java
-// Cleaning up shared member objects.
+//: polymorphism/E13_VerifiedRefCounting.java
+/****************** Exercise 13 *****************
+ * Add a finalize() method to ReferenceCounting.java
+ * to verify the termination condition. (See
+ * the Initialization & Cleanup chapter.)
+ ***********************************************/
 package polymorphism;
 
 import static net.mindview.util.Print.print;
 
 class Shared {
     private int refcount = 0;
-    private static long counter = 0;
-    private final long id = counter++;
+    private static int counter = 0;
+    private int id = counter++;
 
     public Shared() {
         print("Creating " + this);
@@ -22,6 +26,11 @@ class Shared {
             print("Disposing " + this);
     }
 
+    protected void finalize() {
+        if (refcount != 0)
+            print("Error: object is not properly cleaned-up!");
+    }
+
     public String toString() {
         return "Shared " + id;
     }
@@ -29,8 +38,8 @@ class Shared {
 
 class Composing {
     private Shared shared;
-    private static long counter = 0;
-    private final long id = counter++;
+    private static int counter = 0;
+    private int id = counter++;
 
     public Composing(Shared shared) {
         print("Creating " + this);
@@ -48,7 +57,7 @@ class Composing {
     }
 }
 
-public class ReferenceCounting {
+public class E13_VerifiedRefCounting {
     public static void main(String[] args) {
         Shared shared = new Shared();
         Composing[] composing = {new Composing(shared),
@@ -56,6 +65,10 @@ public class ReferenceCounting {
                 new Composing(shared), new Composing(shared)};
         for (Composing c : composing)
             c.dispose();
+        System.gc();
+        // Verify failure:
+        new Composing(new Shared());
+        System.gc();
     }
 }
 /* Output:
@@ -71,4 +84,7 @@ disposing Composing 2
 disposing Composing 3
 disposing Composing 4
 Disposing Shared 0
+Creating Shared 1
+Creating Composing 5
+Error: object is not properly cleaned-up!
 *///:~

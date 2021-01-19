@@ -1,7 +1,6 @@
 //: polymorphism/E17_RTTI.java
 // {ThrowsException}
 /****************** Exercise 17 **************** 
- Thinking in Java, 4th 124 Edition Annotated Solution Guide
  * Add a balance() method to Unicycle and Bicycle
  * but not to Tricycle, using the Cycle hierarchy
  * from Exercise 1. Upcast instances of all

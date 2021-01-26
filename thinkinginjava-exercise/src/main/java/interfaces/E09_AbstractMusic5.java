@@ -1,60 +1,43 @@
-//: interfaces/music5/Music5.java
-// Interfaces.
-package interfaces.music5;
+//: interfaces/E09_AbstractMusic5.java
+/****************** Exercise 9 ******************
+ * Refactor Music5.java by moving the common
+ * methods in Wind, Percussion and Stringed into
+ * an abstract class.
+ ***********************************************/
+package interfaces;
 
 import polymorphism.music.Note;
 
 import static net.mindview.util.Print.print;
 
-interface Instrument {
-    // Compile-time constant:
-    int VALUE = 5; // static & final
-
-    // Cannot have method definitions:
-    void play(Note n); // Automatically public
-
-    void adjust();
-}
-
-class Wind implements Instrument {
+abstract class Instrument {
     public void play(Note n) {
         print(this + ".play() " + n);
     }
 
+    public void adjust() {
+        print(this + ".adjust()");
+    }
+
+    // Forces implementation in derived class:
+    public abstract String toString();
+}
+
+class Wind extends Instrument {
     public String toString() {
         return "Wind";
     }
-
-    public void adjust() {
-        print(this + ".adjust()");
-    }
 }
 
-class Percussion implements Instrument {
-    public void play(Note n) {
-        print(this + ".play() " + n);
-    }
-
+class Percussion extends Instrument {
     public String toString() {
         return "Percussion";
     }
-
-    public void adjust() {
-        print(this + ".adjust()");
-    }
 }
 
-class Stringed implements Instrument {
-    public void play(Note n) {
-        print(this + ".play() " + n);
-    }
-
+class Stringed extends Instrument {
     public String toString() {
         return "Stringed";
-    }
-
-    public void adjust() {
-        print(this + ".adjust()");
     }
 }
 
@@ -70,11 +53,9 @@ class Woodwind extends Wind {
     }
 }
 
-public class Music5 {
-    // Doesn't care about type, so new types
-    // added to the system still work right:
+public class E09_AbstractMusic5 {
     static void tune(Instrument i) {
-        // ...
+        i.adjust();
         i.play(Note.MIDDLE_C);
     }
 
@@ -84,7 +65,6 @@ public class Music5 {
     }
 
     public static void main(String[] args) {
-        // Upcasting during addition to the array:
         Instrument[] orchestra = {
                 new Wind(),
                 new Percussion(),
@@ -96,9 +76,14 @@ public class Music5 {
     }
 }
 /* Output:
+Wind.adjust()
 Wind.play() MIDDLE_C
+Percussion.adjust()
 Percussion.play() MIDDLE_C
+Stringed.adjust()
 Stringed.play() MIDDLE_C
+Brass.adjust()
 Brass.play() MIDDLE_C
+Woodwind.adjust()
 Woodwind.play() MIDDLE_C
 *///:~

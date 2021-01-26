@@ -1,22 +1,27 @@
-//: interfaces/music5/Music5.java
-// Interfaces.
-package interfaces.music5;
+//: interfaces/E10_PlayableMusic5.java
+/****************** Exercise 10 ******************
+ * Add a Playable to Modify Music5.java, and move
+ * the play() declaration from Instrument to
+ * Playable. Include Playable in the implements
+ * list to add it to the derived classes.
+ * Change tune() so it takes a Playable instead
+ * of an Instrument.
+ ***********************************************/
+package interfaces;
 
 import polymorphism.music.Note;
 
 import static net.mindview.util.Print.print;
 
-interface Instrument {
-    // Compile-time constant:
-    int VALUE = 5; // static & final
-
-    // Cannot have method definitions:
-    void play(Note n); // Automatically public
-
+interface Instrument2 {
     void adjust();
 }
 
-class Wind implements Instrument {
+interface Playable {
+    void play(Note n);
+}
+
+class Wind2 implements Instrument2, Playable {
     public void play(Note n) {
         print(this + ".play() " + n);
     }
@@ -30,7 +35,7 @@ class Wind implements Instrument {
     }
 }
 
-class Percussion implements Instrument {
+class Percussion2 implements Instrument2, Playable {
     public void play(Note n) {
         print(this + ".play() " + n);
     }
@@ -44,7 +49,7 @@ class Percussion implements Instrument {
     }
 }
 
-class Stringed implements Instrument {
+class Stringed2 implements Instrument2, Playable {
     public void play(Note n) {
         print(this + ".play() " + n);
     }
@@ -58,39 +63,35 @@ class Stringed implements Instrument {
     }
 }
 
-class Brass extends Wind {
+class Brass2 extends Wind2 {
     public String toString() {
         return "Brass";
     }
 }
 
-class Woodwind extends Wind {
+class Woodwind2 extends Wind2 {
     public String toString() {
         return "Woodwind";
     }
 }
 
-public class Music5 {
-    // Doesn't care about type, so new types
-    // added to the system still work right:
-    static void tune(Instrument i) {
-        // ...
-        i.play(Note.MIDDLE_C);
+public class E10_PlayableMusic5 {
+    static void tune(Playable p) {
+        p.play(Note.MIDDLE_C);
     }
 
-    static void tuneAll(Instrument[] e) {
-        for (Instrument i : e)
-            tune(i);
+    static void tuneAll(Playable[] e) {
+        for (Playable p : e)
+            tune(p);
     }
 
     public static void main(String[] args) {
-        // Upcasting during addition to the array:
-        Instrument[] orchestra = {
-                new Wind(),
-                new Percussion(),
-                new Stringed(),
-                new Brass(),
-                new Woodwind()
+        Playable[] orchestra = {
+                new Wind2(),
+                new Percussion2(),
+                new Stringed2(),
+                new Brass2(),
+                new Woodwind2()
         };
         tuneAll(orchestra);
     }
